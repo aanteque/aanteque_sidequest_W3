@@ -20,7 +20,7 @@ const gameBtn = {
   label: "PRESS HERE", // text shown on the button
 };
 
-
+// photo set up
 let alarmImg;
 
 function preload() {
@@ -56,7 +56,7 @@ function drawGame() {
   // ---- Draw the button ----
   // We pass the button object to a helper function
   drawGameButton(gameBtn);
-  //rawWakeButton(wakeBtn);
+  //drawWakeButton(wakeBtn);
 
 
   // ---- Cursor feedback ----
@@ -96,12 +96,6 @@ function drawWakeButton ({ x, y, w, h, label}) {
   textSize(28);
   textAlign(CENTER, CENTER);
   text(label, x, y);
-
-  image(alarmImg, 300, 275, 200, 150);
-}
-
-function drawSleepButton ({ x, y, w, h, label}) {
-
 }
 
 
@@ -143,7 +137,7 @@ function drawGameButton({ x, y, w, h, label }) {
 function gameMousePressed() {
   // Only trigger the outcome if the button is clicked
   if (isHover(gameBtn)) {
-    triggerRandomOutcome();
+    triggerInter1();
   }
 }
 
@@ -154,7 +148,7 @@ function gameMousePressed() {
 function gameKeyPressed() {
   // ENTER key triggers the same behaviour as clicking the button
   if (keyCode === ENTER) {
-    triggerRandomOutcome();
+    triggerInter1();
   }
 }
 
@@ -177,3 +171,9 @@ function triggerRandomOutcome() {
     currentScreen = "lose";
   }
 }
+
+
+  function triggerInter1() {
+    currentScreen = "inter1"
+    console.log("inter1");
+  }
