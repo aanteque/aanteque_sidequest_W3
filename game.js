@@ -20,6 +20,14 @@ const gameBtn = {
   label: "PRESS HERE", // text shown on the button
 };
 
+
+let alarmImg;
+
+function preload() {
+  alarmImg = loadImage('/assets/photo/AlarmClock.png');
+}
+
+
 // ------------------------------
 // Main draw function for this screen
 // ------------------------------
@@ -27,24 +35,29 @@ const gameBtn = {
 // when currentScreen === "game"
 function drawGame() {
   // Set background colour for the game screen
-  background(240, 230, 140);
+  background(0, 0, 0);
 
   // ---- Title and instructions text ----
-  fill(0); // black text
+  fill(100); // white text
   textSize(32);
   textAlign(CENTER, CENTER);
-  text("Game Screen", width / 2, 160);
+  text("BzZZzzzzZZZzzzz", width / 2, 160);
 
   textSize(18);
   text(
-    "Click the button (or press ENTER) for a random result.",
+    "Your alarm is sounding....",
     width / 2,
     210,
   );
 
+  // For photo, idk why this works but it does
+  fill(0,0,0);
+
   // ---- Draw the button ----
   // We pass the button object to a helper function
   drawGameButton(gameBtn);
+  //rawWakeButton(wakeBtn);
+
 
   // ---- Cursor feedback ----
   // If the mouse is over the button, show a hand cursor
@@ -57,6 +70,41 @@ function drawGame() {
 // ------------------------------
 // This function is responsible *only* for drawing the button.
 // It does NOT handle clicks or game logic.
+
+function drawWakeButton ({ x, y, w, h, label}) {
+  rectMode(CENTER);
+
+  // Check if the mouse is hovering over the button
+  // isHover() is defined in main.js so it can be shared
+  const hover = isHover({ x, y, w, h });
+
+  noStroke();
+
+  // Change button colour when hovered
+  // This gives visual feedback to the player
+  fill(
+    hover
+      ? color(180, 220, 255, 220) // lighter blue on hover
+      : color(200, 220, 255, 190), // normal state
+  );
+
+  // Draw the button rectangle
+  rect(x, y, w, h, 14); // last value = rounded corners
+
+  // Draw the button text
+  fill(0);
+  textSize(28);
+  textAlign(CENTER, CENTER);
+  text(label, x, y);
+
+  image(alarmImg, 300, 275, 200, 150);
+}
+
+function drawSleepButton ({ x, y, w, h, label}) {
+
+}
+
+
 function drawGameButton({ x, y, w, h, label }) {
   rectMode(CENTER);
 
@@ -82,6 +130,9 @@ function drawGameButton({ x, y, w, h, label }) {
   textSize(28);
   textAlign(CENTER, CENTER);
   text(label, x, y);
+
+  image(alarmImg, 300, 275, 200, 150);
+
 }
 
 // ------------------------------

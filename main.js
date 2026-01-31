@@ -23,6 +23,11 @@
 // Only one screen should be active at a time.
 let currentScreen = "start"; // "start" | "instr" | "game" | "win" | "lose"
 
+
+//Tracking
+let dumbDecision;
+let smartDecision;
+
 // ------------------------------
 // setup() runs ONCE at the beginning
 // ------------------------------
