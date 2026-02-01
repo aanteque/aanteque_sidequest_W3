@@ -56,7 +56,7 @@ const sleepBtn = {
 let alarmImg;
 
 function preload() {
-  alarmImg = loadImage('/assets/photo/AlarmClock.png');
+  alarmImg = loadImage('assets/photo/AlarmClock.png');
 }
 
 
