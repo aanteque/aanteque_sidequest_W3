@@ -60,7 +60,12 @@ function draw() {
   else if (currentScreen === "lose") drawLose();
   else if (currentScreen === "inter1") drawInter1();
   else if (currentScreen === "inter2") drawInter2();
-  else if (currentScreen === "win") drawBus();
+  else if (currentScreen === "bus") drawBus();
+  else if (currentScreen === "grocery") drawGrocery();
+  else if (currentScreen === "good") drawGood();
+  else if (currentScreen === "bad") drawBad();
+  else if (currentScreen === "neutral") drawNeutral();
+  else if (currentScreen === "yeast") drawYeast();
 
   // (Optional teaching note)
   // This “if/else chain” is a very common early approach.
@@ -91,6 +96,12 @@ function mousePressed() {
   else if (currentScreen === "inter1") inter1MousePressed?.();
   else if (currentScreen === "inter2") inter2MousePressed?.();
   else if (currentScreen === "bus") busMousePressed?.();
+  else if (currentScreen === "grocery") groceryMousePressed?.();
+  else if (currentScreen === "good") goodMousePressed?.();
+  else if (currentScreen === "bad") badMousePressed?.();
+  else if (currentScreen === "neutral") neutralMousePressed?.();
+  else if (currentScreen === "yeast") yeastMousePressed?.();
+
 
 
 }
@@ -114,7 +125,13 @@ function keyPressed() {
   else if (currentScreen === "lose") loseKeyPressed?.();
   else if (currentScreen === "inter1") inter1KeyPressed?.();
   else if (currentScreen === "inter2") inter2KeyPressed?.();
-  else if (currentScreen === "bus") bus2KeyPressed?.();
+  else if (currentScreen === "bus") busKeyPressed?.();
+  else if (currentScreen === "grocery") groceryKeyPressed?.();
+  else if (currentScreen === "good") goodKeyPressed?.();
+  else if (currentScreen === "bad") badKeyPressed?.();
+  else if (currentScreen === "neutral") neutralKeyPressed?.();
+  else if (currentScreen === "yeast") yeastKeyPressed?.();
+
 
 
 }

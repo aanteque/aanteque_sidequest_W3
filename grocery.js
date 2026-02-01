@@ -55,7 +55,7 @@ const bus2Btn = {
 // ------------------------------------------------------------
 // drawWin() is called from main.js
 // only when currentScreen === "win"
-function drawBus() {
+function drawGrocery() {
   // White background
   background(255, 252, 225);
 
@@ -74,10 +74,4 @@ function drawBus() {
   drawButton(bus2Btn);
 }
 
-  function triggerLate() {
-    currentScreen = "late"
-  }
 
-  function triggerGrocery() {
-    currentScreen = "grocery"
-  }

@@ -44,3 +44,8 @@ function triggerRandomOutcome() {
     currentScreen = "lose";
   }
 }
+
+
+function reset() {
+  currentScreen = "start"
+}

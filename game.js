@@ -95,7 +95,7 @@ function drawGame() {
   // ---- Cursor feedback ----
   // If the mouse is over the button, show a hand cursor
   // Otherwise, show the normal arrow cursor
-  const in1 = isHover(wakeBtn) || isHover(sleepBtn);
+  let in1 = isHover(wakeBtn) || isHover(sleepBtn);
   cursor(in1 ? HAND : ARROW);
 
 }
@@ -114,6 +114,7 @@ function drawGame() {
 function gameMousePressed() {
   // Only trigger the outcome if the button is clicked
   if (isHover(wakeBtn)) {
+    console.log("pressed");
     triggerInter1();
   } else if (isHover(sleepBtn)) {
     triggerInter2();

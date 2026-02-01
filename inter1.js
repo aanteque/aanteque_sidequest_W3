@@ -62,32 +62,16 @@ function gameMousePressed() {
   }
   }
 
+  
+  function gameKeyPressed() {
+    // ENTER key triggers the same behaviour as clicking the button
+    if (keyCode === ENTER && isHover(contBtn)) {
+      triggerBus();
+      
+    }
+  }
   function triggerBus() {
     currentScreen = "bus"
   }
+  
 
-  function gameKeyPressed() {
-  // ENTER key triggers the same behaviour as clicking the button
-  if (keyCode === ENTER && isHover(contBtn)) {
-    triggerInter1();
-
-  }
-}
-
-
-// ------------------------------------------------------------
-// Mouse input for win screen
-// ------------------------------------------------------------
-// Any mouse click returns the player to the start screen
-function busMousePressed() {
-  currentScreen = "inter1";
-}
-
-// ------------------------------------------------------------
-// Keyboard input for win screen
-// ------------------------------------------------------------
-// R is commonly used for “restart” in games
-function inter1KeyPressed() {
-  if (key === "r" || key === "R") {
-  }
-}
