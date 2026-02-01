@@ -71,22 +71,32 @@ function drawInter2() {
 
   drawButton(runBtn);
   drawButton(essBtn);
+
+  let in3 = isHover(runBtn) || isHover(essBtn);
+  cursor(in3 ? HAND : ARROW);
 }
 
-
-// ------------------------------------------------------------
-// Mouse input for win screen
-// ------------------------------------------------------------
-// Any mouse click returns the player to the start screen
 function inter2MousePressed() {
-  //currentScreen = "inter1";
-}
-
-// ------------------------------------------------------------
-// Keyboard input for win screen
-// ------------------------------------------------------------
-// R is commonly used for “restart” in games
-function inter2KeyPressed() {
-  if (key === "r" || key === "R") {
+  // Only trigger the outcome if the button is clicked
+  if (isHover(runBtn)) {
+    triggerBus();
+    // points
+  } else if (isHover(essBtn)) {
+    triggerBus();
+    //points
   }
-}
+  }
+
+  
+  function inter2KeyPressed() {
+    // ENTER key triggers the same behaviour as clicking the button
+    if (keyCode === ENTER && isHover(runBtn)) {
+      triggerBus();
+    } else if (keyCode === ENTER && isHover(essBtn)) {
+      triggerBus();
+    }
+  }
+  function triggerBus() {
+    currentScreen = "bus"
+  }
+  
