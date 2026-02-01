@@ -30,4 +30,12 @@ function drawGood() {
   text("You made it home with plenty of time to spare! Press R to reset", width / 2, 360);
 }
 
-reset();
+
+function goodMousePressed() {
+}
+
+function goodKeyPressed() {
+  if (key === "r" || key === "R") {
+    reset();
+  }
+}

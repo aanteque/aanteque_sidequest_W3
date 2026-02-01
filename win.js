@@ -13,30 +13,35 @@
 // ------------------------------------------------------------
 // drawWin() is called from main.js
 // only when currentScreen === "win"
-function drawBad() {
-  // White background
-  background(150, 12, 0);
+function drawWin() {
+  // Green-tinted background to communicate success
+  background(200, 255, 200);
 
   fill(0);
   textAlign(CENTER, CENTER);
 
   // Main success message
   textSize(40);
-  text("Bad Ending", width / 2, 300);
+  text("You Win!", width / 2, 300);
 
   // Instruction text
   textSize(20);
-  text("You finish your shopping late,,, so late in fact that you can't see the black ice in front of you and you slip...", width / 2, 360);
-
-  textSize(20);
-  text("Next time be more diligent,,, Press R to restart", width / 2, 400);
+  text("Click or press R to return to Start.", width / 2, 360);
 }
 
-function badMousePressed() {
+// ------------------------------------------------------------
+// Mouse input for win screen
+// ------------------------------------------------------------
+// Any mouse click returns the player to the start screen
+function winMousePressed() {
 }
 
-function badKeyPressed() {
+// ------------------------------------------------------------
+// Keyboard input for win screen
+// ------------------------------------------------------------
+// R is commonly used for “restart” in games
+function winKeyPressed() {
   if (key === "r" || key === "R") {
-    reset();
+    currentScreen = "start";
   }
 }

@@ -57,7 +57,7 @@ const foodBtn = {
 // only when currentScreen === "win"
 function drawGrocery() {
   // White background
-  background(255, 252, 225);
+  background(100, 168, 147);
 
   fill(0);
   textAlign(CENTER, CENTER);
@@ -69,6 +69,12 @@ function drawGrocery() {
   // Instruction text
   textSize(20);
   text("decisions, decisions....", width / 2, 360);
+
+  if (bool306Bus === true) {
+    textSize(20);
+    text("we arrived 30 minutes LATE hurry it up princess", width / 2, 400);
+  }
+
 
   drawButton(foodBtn);
   drawButton(yeastBtn);
@@ -115,11 +121,18 @@ function groceryKeyPressed() {
 }
 
   function triggerEnd() {
-    console.log("select ending here");
+    if (dumbDecision === 2) {
+      currentScreen = "bad";
+    } else if (smartDecision == 2) {
+      currentScreen = "good";
+    } else {
+      currentScreen = "neutral";
+    }
+
   }
 
   function triggerYeast() {
-    currentScreen = "yeast"
+    currentScreen = "yeast";
   }
 
 

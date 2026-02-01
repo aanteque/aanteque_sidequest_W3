@@ -114,9 +114,10 @@ function drawGame() {
 function gameMousePressed() {
   // Only trigger the outcome if the button is clicked
   if (isHover(wakeBtn)) {
-    console.log("pressed");
+    smartDecision++;
     triggerInter1();
   } else if (isHover(sleepBtn)) {
+    dumbDecision++;
     triggerInter2();
   }
 }
@@ -128,8 +129,10 @@ function gameMousePressed() {
 function gameKeyPressed() {
   // ENTER key triggers the same behaviour as clicking the button
   if (keyCode === ENTER && isHover(wakeBtn)) {
+    smartDecision++;
     triggerInter1();
   } else if (keyCode === ENTER && isHover(sleepBtn)) {
+    dumbDecision++;
     triggerInter2();
   }
 }

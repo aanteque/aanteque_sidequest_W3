@@ -17,7 +17,7 @@
 // only when currentScreen === "win"
 function drawYeast() {
   // White background
-  background(255, 252, 225);
+  background(233, 0, 225);
 
   fill(0);
   textAlign(CENTER, CENTER);
@@ -31,4 +31,13 @@ function drawYeast() {
   text("MR YEAST APPEARS AND PAYS FOR YOUR GROCRIES DUB!!!!! (press r to reset)", width / 2, 360);
 }
 
-reset();
+
+function yeastMousePressed() {
+}
+
+
+function yeastKeyPressed() {
+  if (key === "r" || key === "R") {
+    reset();
+  }
+}

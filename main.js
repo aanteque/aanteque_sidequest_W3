@@ -25,8 +25,10 @@ let currentScreen = "start"; // "start" | "instr" | "game" | "win" | "lose"
 
 
 //Tracking
-let dumbDecision;
-let smartDecision;
+let dumbDecision = 0;
+let smartDecision = 0;
+
+let bool306Bus = false;
 
 // ------------------------------
 // setup() runs ONCE at the beginning
@@ -97,9 +99,6 @@ function mousePressed() {
   else if (currentScreen === "bad") badMousePressed?.();
   else if (currentScreen === "neutral") neutralMousePressed?.();
   else if (currentScreen === "yeast") yeastMousePressed?.();
-
-
-
 }
 
 // ------------------------------

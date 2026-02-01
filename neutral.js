@@ -15,7 +15,7 @@
 // only when currentScreen === "win"
 function drawNeutral() {
   // White background
-  background(255, 252, 225);
+  background(181, 181, 181);
 
   fill(0);
   textAlign(CENTER, CENTER);
@@ -29,4 +29,11 @@ function drawNeutral() {
   text("You managed to survive congrats! Press R to reset", width / 2, 360);
 }
 
-reset();
+function neutralMousePressed() {
+}
+
+function neutralKeyPressed() {
+  if (key === "r" || key === "R") {
+    reset();
+  }
+}

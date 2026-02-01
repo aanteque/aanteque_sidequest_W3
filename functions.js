@@ -47,19 +47,12 @@ function triggerRandomOutcome() {
 
 
 function reset() {
-    if (key === "r" || key === "R")  {
-        currentScreen = "start";
-    }
+      smartDecision = 0;
+      dumbDecision = 0;
+      bool306Bus = false;  
+      currentScreen = "start";
 }
 
-
-// ------------------------------------------------------------
-// Mouse input for win screen
-// ------------------------------------------------------------
-// Any mouse click returns the player to the start screen
-function winMousePressed() {
-  currentScreen = "start";
-}
 
 // ------------------------------------------------------------
 // Keyboard input for win screen
