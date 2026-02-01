@@ -55,7 +55,7 @@ function drawInter1() {
 }
 
 
-function gameMousePressed() {
+function inter1MousePressed() {
   // Only trigger the outcome if the button is clicked
   if (isHover(contBtn)) {
     triggerBus();
@@ -63,7 +63,7 @@ function gameMousePressed() {
   }
 
   
-  function gameKeyPressed() {
+  function inter1KeyPressed() {
     // ENTER key triggers the same behaviour as clicking the button
     if (keyCode === ENTER && isHover(contBtn)) {
       triggerBus();

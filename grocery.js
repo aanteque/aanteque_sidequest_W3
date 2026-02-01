@@ -9,12 +9,12 @@
 // simple “end states” with minimal logic.
 
 
-const bus1Btn = {
+const yeastBtn = {
   x: 200, // x position (centre of the button)
   y: 550, // y position (centre of the button)
   w: 260, // width
   h: 90, // height
-  label: "304", // text shown on the button
+  label: "YEASTABLES", // text shown on the button
 
   // Color 1
   r1: 180,
@@ -29,12 +29,12 @@ const bus1Btn = {
   a2: 190,
 };
 
-const bus2Btn = {
+const foodBtn = {
   x: 600, // x position (centre of the button)
   y: 550, // y position (centre of the button)
   w: 260, // width
   h: 90, // height
-  label: "306", // text shown on the button
+  label: "Groceries", // text shown on the button
 
   // Color 1
   r1: 180,
@@ -64,14 +64,62 @@ function drawGrocery() {
 
   // Main success message
   textSize(40);
-  text("WHICH BUS SHALL YOU ENTER?", width / 2, 300);
+  text("Hmmmm should I get food or some candy", width / 2, 300);
 
   // Instruction text
   textSize(20);
-  text("Don't forget you have to head to the 304 bus soon so get ready!", width / 2, 360);
+  text("decisions, decisions....", width / 2, 360);
 
-  drawButton(bus1Btn);
-  drawButton(bus2Btn);
+  drawButton(foodBtn);
+  drawButton(yeastBtn);
+
+  // ---- Cursor feedback ----
+  // If the mouse is over the button, show a hand cursor
+  // Otherwise, show the normal arrow cursor
+  let in2 = isHover(foodBtn) || isHover(yeastBtn);
+  cursor(in2 ? HAND : ARROW);
 }
+
+
+// ------------------------------
+// Button drawing helper
+// ------------------------------
+// This function is responsible *only* for drawing the button.
+// It does NOT handle clicks or game logic.
+
+// ------------------------------
+// Mouse input for this screen
+// ------------------------------
+// This function is called from main.js
+// only when currentScreen === "game"
+function gameMousePressed() {
+  // Only trigger the outcome if the button is clicked
+  if (isHover(foodBtn)) {
+    triggerEnd();
+  } else if (isHover(yeastBtn)) {
+    triggerYeast();
+  }
+}
+
+// ------------------------------
+// Keyboard input for this screen
+// ------------------------------
+// Allows keyboard-only interaction (accessibility + design)
+function gameKeyPressed() {
+  // ENTER key triggers the same behaviour as clicking the button
+  if (keyCode === ENTER && isHover(foodBtn)) {
+    triggerEnd();
+  } else if (keyCode === ENTER && isHover(yeastBtn)) {
+    triggerYeast();
+  }
+}
+
+  function triggerEnd() {
+    
+  }
+
+  function triggerYeast() {
+    currentScreen = "yeast"
+  }
 
 

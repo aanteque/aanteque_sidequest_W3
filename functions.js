@@ -47,5 +47,7 @@ function triggerRandomOutcome() {
 
 
 function reset() {
-  currentScreen = "start"
+    if (key === "r" || key === "R")  {
+        currentScreen = "start";
+    }
 }

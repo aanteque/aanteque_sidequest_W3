@@ -68,10 +68,35 @@ function drawBus() {
 
   // Instruction text
   textSize(20);
-  text("Don't forget you have to head to the 304 bus soon so get ready!", width / 2, 360);
+  text("hurry,, I think its leaving soon", width / 2, 360);
 
   drawButton(bus1Btn);
   drawButton(bus2Btn);
+
+  const constBus = isHover(bus1Btn) || isHover(bus2Btn);
+  cursor(constBus ? HAND : ARROW);
+}
+
+function busMousePressed() {
+  // Only trigger the outcome if the button is clicked
+  if (isHover(bus1Btn)) {
+    triggerLate();
+  } else if (isHover(bus2Btn)) {
+    triggerGrocery();
+  }
+}
+
+// ------------------------------
+// Keyboard input for this screen
+// ------------------------------
+// Allows keyboard-only interaction (accessibility + design)
+function busKeyPressed() {
+  // ENTER key triggers the same behaviour as clicking the button
+  if (keyCode === ENTER && isHover(bus1Btn)) {
+    triggerLate();
+  } else if (keyCode === ENTER && isHover(bus2Btn)) {
+    triggerGrocery();
+  }
 }
 
   function triggerLate() {
@@ -81,3 +106,6 @@ function drawBus() {
   function triggerGrocery() {
     currentScreen = "grocery"
   }
+
+  
+  

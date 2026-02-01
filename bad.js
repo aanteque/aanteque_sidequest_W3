@@ -64,12 +64,14 @@ function drawBad() {
 
   // Main success message
   textSize(40);
-  text("WHICH BUS SHALL YOU ENTER?", width / 2, 300);
+  text("Bad Ending", width / 2, 300);
 
   // Instruction text
   textSize(20);
-  text("Don't forget you have to head to the 304 bus soon so get ready!", width / 2, 360);
+  text("You finish your shopping late,,, so late in fact that you can't see the black ice in front of you and you slip...", width / 2, 360);
 
-  drawButton(bus1Btn);
-  drawButton(bus2Btn);
+  textSize(20);
+  text("Next time be more diligent,,, Press R to restart", width / 2, 400);
 }
+
+reset();
