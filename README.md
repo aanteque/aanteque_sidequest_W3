@@ -31,6 +31,6 @@ All my own drawings.
 
 ## GenAI
 
-None used YET.
+None used.
 
 ---
