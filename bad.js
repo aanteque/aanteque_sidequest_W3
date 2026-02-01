@@ -26,7 +26,7 @@ function drawBad() {
 
   // Instruction text
   textSize(20);
-  text("You finish your shopping late,,, so late in fact that you can't see the black ice in front of you and you slip...", width / 2, 360);
+  text("You finish your shopping late,,, so late in fact that you can't see the black ice and slip", width / 2, 360);
 
   textSize(20);
   text("Next time be more diligent,,, Press R to restart", width / 2, 400);
