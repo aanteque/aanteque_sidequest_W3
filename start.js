@@ -31,7 +31,19 @@ function drawStart() {
     y: 320,
     w: 240,
     h: 80,
-    label: "Wake UP!!!",
+    label: "Get Started!!!",
+
+  r1: 180,
+  g1: 220,
+  b1: 225,
+  a1: 220,
+
+  // Color 2
+  r2: 200,
+  g2: 220,
+  b2: 255,
+  a2: 190,
+    
   };
 
   const instrBtn = {
@@ -40,6 +52,18 @@ function drawStart() {
     w: 240,
     h: 80,
     label: "INSTRUCTIONS",
+
+      // Color 1
+  r1: 180,
+  g1: 220,
+  b1: 225,
+  a1: 220,
+
+  // Color 2
+  r2: 200,
+  g2: 220,
+  b2: 255,
+  a2: 190,
   };
 
   // Draw both buttons

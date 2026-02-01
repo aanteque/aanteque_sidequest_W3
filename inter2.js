@@ -8,13 +8,18 @@
 // The goal is to show that win/lose screens are often
 // simple “end states” with minimal logic.
 
+// ------------------------------------------------------------
+// Main draw function for win screen
+// ------------------------------------------------------------
+// drawWin() is called from main.js
+// only when currentScreen === "win"
 
-const contBtn = {
-  x: 400, // x position (centre of the button)
+const runBtn = {
+  x: 200, // x position (centre of the button)
   y: 550, // y position (centre of the button)
   w: 260, // width
   h: 90, // height
-  label: "continue...", // text shown on the button
+  label: "RUN 2 BUS", // text shown on the button
 
   // Color 1
   r1: 180,
@@ -29,65 +34,65 @@ const contBtn = {
   a2: 190,
 };
 
-// ------------------------------------------------------------
-// Main draw function for win screen
-// ------------------------------------------------------------
-// drawWin() is called from main.js
-// only when currentScreen === "win"
-function drawInter1() {
+const essBtn = {
+  x: 600, // x position (centre of the button)
+  y: 550, // y position (centre of the button)
+  w: 260, // width
+  h: 90, // height
+  label: "GRAB ESSENTIALS", // text shown on the button
+
+  // Color 1
+  r1: 180,
+  g1: 220,
+  b1: 225,
+  a1: 220,
+
+  // Color 2
+  r2: 200,
+  g2: 220,
+  b2: 255,
+  a2: 190,
+};
+
+function drawInter2() {
   // White background
-  background(255, 252, 225);
+  background(150, 12, 0);
 
   fill(0);
   textAlign(CENTER, CENTER);
 
   // Main success message
   textSize(40);
-  text("Congrats on waking up!", width / 2, 300);
+  text("BEEP BEEP BEEP WAKE UP STINKY", width / 2, 300);
 
   // Instruction text
   textSize(20);
-  text("Don't forget you have to head to the 304 bus soon so get ready!", width / 2, 360);
+  text("YOU'RE LATE TO THE 304!!!!! GOOO", width / 2, 360);
 
-  drawButton(contBtn);
-  cursor(isHover(contBtn) ? HAND : ARROW);
-
+  drawButton(runBtn);
+  drawButton(essBtn);
 }
 
 
-function gameMousePressed() {
-  // Only trigger the outcome if the button is clicked
-  if (isHover(contBtn)) {
-    triggerBus();
-  }
-  }
 
-  function triggerBus() {
-    currentScreen = "bus"
-  }
 
-  function gameKeyPressed() {
-  // ENTER key triggers the same behaviour as clicking the button
-  if (keyCode === ENTER && isHover(contBtn)) {
-    triggerInter1();
 
-  }
-}
+
 
 
 // ------------------------------------------------------------
 // Mouse input for win screen
 // ------------------------------------------------------------
 // Any mouse click returns the player to the start screen
-function busMousePressed() {
-  currentScreen = "inter1";
+function inter2MousePressed() {
+  //currentScreen = "inter1";
 }
 
 // ------------------------------------------------------------
 // Keyboard input for win screen
 // ------------------------------------------------------------
 // R is commonly used for “restart” in games
-function inter1KeyPressed() {
+function inter2KeyPressed() {
   if (key === "r" || key === "R") {
   }
 }

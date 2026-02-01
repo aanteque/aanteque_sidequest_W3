@@ -9,12 +9,12 @@
 // simple “end states” with minimal logic.
 
 
-const contBtn = {
-  x: 400, // x position (centre of the button)
+const bus1Btn = {
+  x: 200, // x position (centre of the button)
   y: 550, // y position (centre of the button)
   w: 260, // width
   h: 90, // height
-  label: "continue...", // text shown on the button
+  label: "304", // text shown on the button
 
   // Color 1
   r1: 180,
@@ -29,12 +29,33 @@ const contBtn = {
   a2: 190,
 };
 
+const bus2Btn = {
+  x: 600, // x position (centre of the button)
+  y: 550, // y position (centre of the button)
+  w: 260, // width
+  h: 90, // height
+  label: "306", // text shown on the button
+
+  // Color 1
+  r1: 180,
+  g1: 220,
+  b1: 225,
+  a1: 220,
+
+  // Color 2
+  r2: 200,
+  g2: 220,
+  b2: 255,
+  a2: 190,
+};
+
+
 // ------------------------------------------------------------
 // Main draw function for win screen
 // ------------------------------------------------------------
 // drawWin() is called from main.js
 // only when currentScreen === "win"
-function drawInter1() {
+function drawBus() {
   // White background
   background(255, 252, 225);
 
@@ -43,51 +64,29 @@ function drawInter1() {
 
   // Main success message
   textSize(40);
-  text("Congrats on waking up!", width / 2, 300);
+  text("WHICH BUS SHALL YOU ENTER?", width / 2, 300);
 
   // Instruction text
   textSize(20);
   text("Don't forget you have to head to the 304 bus soon so get ready!", width / 2, 360);
 
-  drawButton(contBtn);
-  cursor(isHover(contBtn) ? HAND : ARROW);
-
+  drawButton(bus1Btn);
+  drawButton(bus2Btn);
 }
-
-
-function gameMousePressed() {
-  // Only trigger the outcome if the button is clicked
-  if (isHover(contBtn)) {
-    triggerBus();
-  }
-  }
-
-  function triggerBus() {
-    currentScreen = "bus"
-  }
-
-  function gameKeyPressed() {
-  // ENTER key triggers the same behaviour as clicking the button
-  if (keyCode === ENTER && isHover(contBtn)) {
-    triggerInter1();
-
-  }
-}
-
 
 // ------------------------------------------------------------
 // Mouse input for win screen
 // ------------------------------------------------------------
 // Any mouse click returns the player to the start screen
 function busMousePressed() {
-  currentScreen = "inter1";
+  currentScreen = "bus";
 }
 
 // ------------------------------------------------------------
 // Keyboard input for win screen
 // ------------------------------------------------------------
 // R is commonly used for “restart” in games
-function inter1KeyPressed() {
+function busKeyPressed() {
   if (key === "r" || key === "R") {
   }
 }

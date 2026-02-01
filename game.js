@@ -12,12 +12,44 @@
 // and interact with the button on the game screen.
 // Keeping this in one object makes it easier to move,
 // resize, or restyle the button later.
-const gameBtn = {
-  x: 400, // x position (centre of the button)
+const wakeBtn = {
+  x: 400/2, // x position (centre of the button)
   y: 550, // y position (centre of the button)
   w: 260, // width
   h: 90, // height
-  label: "PRESS HERE", // text shown on the button
+  label: "WAKE UP!", // text shown on the button
+
+  // Color 1
+  r1: 180,
+  g1: 220,
+  b1: 225,
+  a1: 220,
+
+  // Color 2
+  r2: 200,
+  g2: 220,
+  b2: 255,
+  a2: 190,
+};
+
+const sleepBtn = {
+  x: 600, // x position (centre of the button)
+  y: 550, // y position (centre of the button)
+  w: 260, // width
+  h: 90, // height
+  label: "sleep in mimimi", // text shown on the button
+
+    // Color 1
+  r1: 180,
+  g1: 220,
+  b1: 225,
+  a1: 220,
+
+  // Color 2
+  r2: 200,
+  g2: 220,
+  b2: 255,
+  a2: 190,
 };
 
 // photo set up
@@ -52,17 +84,20 @@ function drawGame() {
 
   // For photo, idk why this works but it does
   fill(0,0,0);
+  image(alarmImg, 250, 250, 300, 200)
 
   // ---- Draw the button ----
   // We pass the button object to a helper function
-  drawGameButton(gameBtn);
-  //drawWakeButton(wakeBtn);
+  drawButton(wakeBtn);
+  drawButton(sleepBtn);
 
 
   // ---- Cursor feedback ----
   // If the mouse is over the button, show a hand cursor
   // Otherwise, show the normal arrow cursor
-  cursor(isHover(gameBtn) ? HAND : ARROW);
+  const in1 = isHover(wakeBtn) || isHover(sleepBtn);
+  cursor(in1 ? HAND : ARROW);
+
 }
 
 // ------------------------------
@@ -71,64 +106,6 @@ function drawGame() {
 // This function is responsible *only* for drawing the button.
 // It does NOT handle clicks or game logic.
 
-function drawWakeButton ({ x, y, w, h, label}) {
-  rectMode(CENTER);
-
-  // Check if the mouse is hovering over the button
-  // isHover() is defined in main.js so it can be shared
-  const hover = isHover({ x, y, w, h });
-
-  noStroke();
-
-  // Change button colour when hovered
-  // This gives visual feedback to the player
-  fill(
-    hover
-      ? color(180, 220, 255, 220) // lighter blue on hover
-      : color(200, 220, 255, 190), // normal state
-  );
-
-  // Draw the button rectangle
-  rect(x, y, w, h, 14); // last value = rounded corners
-
-  // Draw the button text
-  fill(0);
-  textSize(28);
-  textAlign(CENTER, CENTER);
-  text(label, x, y);
-}
-
-
-function drawGameButton({ x, y, w, h, label }) {
-  rectMode(CENTER);
-
-  // Check if the mouse is hovering over the button
-  // isHover() is defined in main.js so it can be shared
-  const hover = isHover({ x, y, w, h });
-
-  noStroke();
-
-  // Change button colour when hovered
-  // This gives visual feedback to the player
-  fill(
-    hover
-      ? color(180, 220, 255, 220) // lighter blue on hover
-      : color(200, 220, 255, 190), // normal state
-  );
-
-  // Draw the button rectangle
-  rect(x, y, w, h, 14); // last value = rounded corners
-
-  // Draw the button text
-  fill(0);
-  textSize(28);
-  textAlign(CENTER, CENTER);
-  text(label, x, y);
-
-  image(alarmImg, 300, 275, 200, 150);
-
-}
-
 // ------------------------------
 // Mouse input for this screen
 // ------------------------------
@@ -136,8 +113,10 @@ function drawGameButton({ x, y, w, h, label }) {
 // only when currentScreen === "game"
 function gameMousePressed() {
   // Only trigger the outcome if the button is clicked
-  if (isHover(gameBtn)) {
+  if (isHover(wakeBtn)) {
     triggerInter1();
+  } else if (isHover(sleepBtn)) {
+    triggerInter2();
   }
 }
 
@@ -147,33 +126,18 @@ function gameMousePressed() {
 // Allows keyboard-only interaction (accessibility + design)
 function gameKeyPressed() {
   // ENTER key triggers the same behaviour as clicking the button
-  if (keyCode === ENTER) {
+  if (keyCode === ENTER && isHover(wakeBtn)) {
     triggerInter1();
+  } else if (keyCode === ENTER && isHover(sleepBtn)) {
+    triggerInter2();
   }
 }
-
-// ------------------------------
-// Game logic: win or lose
-// ------------------------------
-// This function decides what happens next in the game.
-// It does NOT draw anything.
-function triggerRandomOutcome() {
-  // random() returns a value between 0 and 1
-  // Here we use a 50/50 chance:
-  // - less than 0.5 → win
-  // - 0.5 or greater → lose
-  //
-  // You can bias this later, for example:
-  // random() < 0.7 → 70% chance to win
-  if (random() < 0.5) {
-    currentScreen = "win";
-  } else {
-    currentScreen = "lose";
-  }
-}
-
 
   function triggerInter1() {
     currentScreen = "inter1"
-    console.log("inter1");
   }
+
+  function triggerInter2() {
+    currentScreen = "inter2"
+  }
+

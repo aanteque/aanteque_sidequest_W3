@@ -8,27 +8,6 @@
 // The goal is to show that win/lose screens are often
 // simple “end states” with minimal logic.
 
-
-const contBtn = {
-  x: 400, // x position (centre of the button)
-  y: 550, // y position (centre of the button)
-  w: 260, // width
-  h: 90, // height
-  label: "continue...", // text shown on the button
-
-  // Color 1
-  r1: 180,
-  g1: 220,
-  b1: 225,
-  a1: 220,
-
-  // Color 2
-  r2: 200,
-  g2: 220,
-  b2: 255,
-  a2: 190,
-};
-
 // ------------------------------------------------------------
 // Main draw function for win screen
 // ------------------------------------------------------------
@@ -43,43 +22,19 @@ function drawInter1() {
 
   // Main success message
   textSize(40);
-  text("Congrats on waking up!", width / 2, 300);
+  text("YOU'RE LATE", width / 2, 300);
 
   // Instruction text
   textSize(20);
-  text("Don't forget you have to head to the 304 bus soon so get ready!", width / 2, 360);
-
-  drawButton(contBtn);
-  cursor(isHover(contBtn) ? HAND : ARROW);
+  text("PICK SHOULD YOU DO NEXT", width / 2, 360);
 
 }
-
-
-function gameMousePressed() {
-  // Only trigger the outcome if the button is clicked
-  if (isHover(contBtn)) {
-    triggerBus();
-  }
-  }
-
-  function triggerBus() {
-    currentScreen = "bus"
-  }
-
-  function gameKeyPressed() {
-  // ENTER key triggers the same behaviour as clicking the button
-  if (keyCode === ENTER && isHover(contBtn)) {
-    triggerInter1();
-
-  }
-}
-
 
 // ------------------------------------------------------------
 // Mouse input for win screen
 // ------------------------------------------------------------
 // Any mouse click returns the player to the start screen
-function busMousePressed() {
+function inter1MousePressed() {
   currentScreen = "inter1";
 }
 
