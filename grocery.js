@@ -92,7 +92,7 @@ function drawGrocery() {
 // ------------------------------
 // This function is called from main.js
 // only when currentScreen === "game"
-function gameMousePressed() {
+function groceryMousePressed() {
   // Only trigger the outcome if the button is clicked
   if (isHover(foodBtn)) {
     triggerEnd();
@@ -105,7 +105,7 @@ function gameMousePressed() {
 // Keyboard input for this screen
 // ------------------------------
 // Allows keyboard-only interaction (accessibility + design)
-function gameKeyPressed() {
+function groceryKeyPressed() {
   // ENTER key triggers the same behaviour as clicking the button
   if (keyCode === ENTER && isHover(foodBtn)) {
     triggerEnd();
@@ -115,7 +115,7 @@ function gameKeyPressed() {
 }
 
   function triggerEnd() {
-    
+    console.log("select ending here");
   }
 
   function triggerYeast() {

@@ -8,48 +8,6 @@
 // The goal is to show that win/lose screens are often
 // simple “end states” with minimal logic.
 
-
-const bus1Btn = {
-  x: 200, // x position (centre of the button)
-  y: 550, // y position (centre of the button)
-  w: 260, // width
-  h: 90, // height
-  label: "304", // text shown on the button
-
-  // Color 1
-  r1: 180,
-  g1: 220,
-  b1: 225,
-  a1: 220,
-
-  // Color 2
-  r2: 200,
-  g2: 220,
-  b2: 255,
-  a2: 190,
-};
-
-const bus2Btn = {
-  x: 600, // x position (centre of the button)
-  y: 550, // y position (centre of the button)
-  w: 260, // width
-  h: 90, // height
-  label: "306", // text shown on the button
-
-  // Color 1
-  r1: 180,
-  g1: 220,
-  b1: 225,
-  a1: 220,
-
-  // Color 2
-  r2: 200,
-  g2: 220,
-  b2: 255,
-  a2: 190,
-};
-
-
 // ------------------------------------------------------------
 // Main draw function for win screen
 // ------------------------------------------------------------
@@ -57,7 +15,7 @@ const bus2Btn = {
 // only when currentScreen === "win"
 function drawBad() {
   // White background
-  background(255, 252, 225);
+  background(150, 12, 0);
 
   fill(0);
   textAlign(CENTER, CENTER);

@@ -51,3 +51,22 @@ function reset() {
         currentScreen = "start";
     }
 }
+
+
+// ------------------------------------------------------------
+// Mouse input for win screen
+// ------------------------------------------------------------
+// Any mouse click returns the player to the start screen
+function winMousePressed() {
+  currentScreen = "start";
+}
+
+// ------------------------------------------------------------
+// Keyboard input for win screen
+// ------------------------------------------------------------
+// R is commonly used for “restart” in games
+function winKeyPressed() {
+  if (key === "r" || key === "R") {
+    currentScreen = "start";
+  }
+}
